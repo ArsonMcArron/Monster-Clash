@@ -1011,7 +1011,7 @@ Transform:
   m_GameObject: {fileID: 612749464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5597135, y: -0.10916233, z: -10}
+  m_LocalPosition: {x: 0.5597137, y: -0.10916233, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1067673964}
-  followTarget: {fileID: 1333737692}
+  followTarget: {fileID: 952895412}
 --- !u!1 &683505941
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2183,7 @@ Transform:
   m_GameObject: {fileID: 1573001037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85358584, y: -1.3433621, z: -0.5}
+  m_LocalPosition: {x: 0.85358584, y: -1.3433621, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2982,7 +2982,7 @@ Transform:
   m_GameObject: {fileID: 2137532230}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.85358584, y: -1.3433621, z: -1}
+  m_LocalPosition: {x: 0.85358584, y: -1.3433621, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
