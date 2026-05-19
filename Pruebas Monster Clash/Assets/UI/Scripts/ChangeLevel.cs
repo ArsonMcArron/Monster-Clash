@@ -1,13 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ChangeLevel : MonoBehaviour
 {
-    public void CambiarEscena (string nombre) 
+    public void CargarEscena(string nombreEscena)
     {
-        SceneManager.LoadScene(nombre);
+        //BOTON VACIO DEBUG
+        if (string.IsNullOrEmpty(nombreEscena))
+        {
+            Debug.LogError("¡Error! No hay nombre de escena en el boton.");
+            return;
+        }
+
+        //BOTON FUNCIONA DEBUG
+        Debug.Log("El boton funciona. YIPPIEEE. Intentando cargar: " + nombreEscena);
+
+        //CARGA ESCENA
+        SceneManager.LoadScene(nombreEscena);
     }
 }
