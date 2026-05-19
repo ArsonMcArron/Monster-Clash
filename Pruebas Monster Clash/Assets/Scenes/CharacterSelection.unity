@@ -202,6 +202,10 @@ GameObject:
   - component: {fileID: 411834910}
   - component: {fileID: 411834909}
   - component: {fileID: 411834908}
+  - component: {fileID: 721575493}
+  - component: {fileID: 721575496}
+  - component: {fileID: 721575495}
+  - component: {fileID: 721575494}
   m_Layer: 5
   m_Name: Atras
   m_TagString: Untagged
@@ -311,6 +315,7 @@ CanvasRenderer:
   m_GameObject: {fileID: 411834906}
   m_CullTransparentMesh: 1
 --- !u!1 &721575492
+--- !u!1 &774001413
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
