@@ -20,6 +20,7 @@ public class BaseCharacterMovement : MonoBehaviour
     private bool _facingRight = true;
     private bool _isGrounded;
 
+    [SerializeField] private float health;
 
     void Awake()
     {
