@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winning.unity
     guid: d56d7fb47d7c51444809a9518138f7ad
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: de9ebf26a0b09294587d03c0851b398e
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 8e3c63a6040a8714cb0ecf278debb54e
+  - enabled: 1
+    path: Assets/Scenes/MimicFightingScene.unity
+    guid: 60dff7069aadecc4d8d149095ade5c5d
+  - enabled: 1
+    path: Assets/Scenes/OniFightingScene.unity
+    guid: c45eda66215f20d4793d23c8ed8a2c3c
   m_configObjects: {}
