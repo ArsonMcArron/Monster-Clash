@@ -3,21 +3,34 @@ using UnityEngine;
 public class SubMenuButton : MonoBehaviour
 {
     [Header("Configuración del Submenú")]
-    public string nombreDelSubmenu;
-    public string nombreDelPadre;
+    public GameObject panelSubmenu;
+    public GameObject panelPadre;
+
+    [Header("Referencia al Manager")]
+    public OverlayManager managerDirecto;
 
     public void EjecutarApertura()
     {
-        //BUSCA EL OVERLAY POR DIOS TE LO PIDO
-        OverlayManager manager = Object.FindFirstObjectByType<OverlayManager>();
-        if (manager != null)
+        //TA EL BOTON O NO?
+        if (managerDirecto == null)
         {
-            manager.OpenSubOverlay(nombreDelSubmenu, nombreDelPadre);
+            Debug.LogError($"[ERROR] EL BOTON '{gameObject.name}' NO TIENE ASIGNAAS LAS COSAS CHAVAL");
+            return;
+        }
+
+        //TAN LOS PANELES O NO?
+        if (panelSubmenu != null && panelPadre != null)
+        {
+            Debug.Log($"[BOTÓN] TOY TRATANDO DE ABRIR '{panelSubmenu.name}' QUE DEPENDE DE '{panelPadre.name}'");
+
+            //MANAGER, HAZ COSAS
+            managerDirecto.OpenSubOverlay(panelSubmenu.name, panelPadre.name);
         }
         else
         {
-            Debug.LogError("¡No hay ningún OverlayManager en la escena, manín!");
+            Debug.LogError($"[ERROR] ASIGNA LOS PANELES AL BOTON '{gameObject.name}', CACHO MELON.");
         }
     }
 }
+
 

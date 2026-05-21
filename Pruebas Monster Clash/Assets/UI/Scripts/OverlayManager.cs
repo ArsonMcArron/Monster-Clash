@@ -28,22 +28,26 @@ public class OverlayManager : MonoBehaviour
     public void OpenSubOverlay(string panelName, string padreANoCerrar)
     {
         GameObject panel = BuscarPanel(panelName);
-        if (panel == null) return;
 
-        //GUARDAR EL ESTADO DEL TOGGLE
+        if (panel == null)
+        {
+            Debug.LogError($"NO TA ESO EH: {panelName}");
+            return;
+        }
+
         bool estabaActivo = panel.activeSelf;
 
-        //MATA ESOS OVERLAYS!! (EXCEPTO EL PADRE)
-        CloseAllOverlaysExcept(padreANoCerrar);
+        //MANTENER A AMBOS PAPI E HIJO
+        CloseAllOverlaysExcept(padreANoCerrar, panelName);
 
-        //SI TA APAGAO PRENDETE Y VICEVERSA
         if (!estabaActivo)
         {
             panel.SetActive(true);
-            Debug.Log($"SUBPANEL [{panel.name}] abierto. Padre [{padreANoCerrar}] se mantuvo activo.");
+            Debug.Log($"SUBPANEL [{panel.name}] abierto.");
         }
         else
         {
+            panel.SetActive(false);
             Debug.Log($"SUBPANEL [{panel.name}] cerrado.");
         }
     }
@@ -81,24 +85,38 @@ public class OverlayManager : MonoBehaviour
         }
     }
 
-    //COMO REPITAS EL CODIGO DE BUSQUEDA ME MATO.
     private GameObject BuscarPanel(string panelName)
     {
-        if (overlayPanels == null) return null;
+        if (overlayPanels == null)
+        {
+            Debug.LogError("¡EL ARRAY 'overlayPanels' ESTÁ TOTALMENTE NULO EN EL INSPECTOR!");
+            return null;
+        }
+
+        Debug.Log($"[INFO] Buscando: '{panelName}' (Longitud: {panelName.Length}). Total en array: {overlayPanels.Length}");
 
         foreach (GameObject panel in overlayPanels)
         {
-            if (panel != null && panel.name == panelName)
+            if (panel == null)
+            {
+                Debug.LogWarning("-> Ojo: Hay un hueco vacío (Missing/Null) dentro del array overlayPanels.");
+                continue;
+            }
+
+            Debug.Log($"-> Comparando con: '{panel.name}' (Longitud: {panel.name.Length})");
+
+            if (panel.name == panelName)
             {
                 return panel;
             }
         }
+
         Debug.LogWarning("NO TA ESO EH: " + panelName);
         return null;
     }
 
     //APAGAME TODO MENOS EL PANELIN QUE TE DIGA EH
-    private void CloseAllOverlaysExcept(string nombreIgnorado)
+    private void CloseAllOverlaysExcept(params string[] nombresIgnorados)
     {
         if (overlayPanels == null) return;
 
@@ -106,8 +124,18 @@ public class OverlayManager : MonoBehaviour
         {
             if (panel != null)
             {
-                // Si el panel es el que queremos ignorar (el padre), nos lo saltamos
-                if (panel.name == nombreIgnorado) continue;
+                bool ignorar = false;
+
+                foreach (string nombre in nombresIgnorados)
+                {
+                    if (panel.name == nombre)
+                    {
+                        ignorar = true;
+                        break;
+                    }
+                }
+
+                if (ignorar) continue;
 
                 panel.SetActive(false);
             }
@@ -127,30 +155,4 @@ public class OverlayManager : MonoBehaviour
             }
         }
     }
-
-    //RESOLUCIONES DE PANTALLA
-public class ResolutionManager : MonoBehaviour
-{
-    public void SetResolution_HD()
-    {
-        //PANTALLA COMPLETA
-        Screen.SetResolution(1280, 720, true);
-        Debug.Log("Resolución cambiada a HD (1280x720)");
-    }
-
-    public void SetResolution_FullHD()
-    {
-        //PANTALLA COMPLETA
-        Screen.SetResolution(1920, 1080, true);
-        Debug.Log("Resolución cambiada a Full HD (1920x1080)");
-    }
-
-    public void SetResolution_QuadHD()
-    {
-        //PANTALLA COMPLETA
-        Screen.SetResolution(2560, 1440, true);
-        Debug.Log("Resolución cambiada a Quad HD (2560x1440)");
-    }
-}
-
 }

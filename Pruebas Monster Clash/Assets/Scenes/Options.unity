@@ -268,8 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1506d5b74575870419558a1e891db6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDelSubmenu: PanelNivelGrafico
-  nombreDelPadre: PanelGraficos
+  panelSubmenu: {fileID: 1969458256}
+  panelPadre: {fileID: 73242260}
+  managerDirecto: {fileID: 1569566365}
 --- !u!1 &46071742
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,8 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1506d5b74575870419558a1e891db6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDelSubmenu: PanelResolucion
-  nombreDelPadre: PanelGraficos
+  panelSubmenu: {fileID: 1313453900}
+  panelPadre: {fileID: 73242260}
+  managerDirecto: {fileID: 1569566365}
 --- !u!1 &207778610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,8 +1031,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1506d5b74575870419558a1e891db6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDelSubmenu: PanelVFX
-  nombreDelPadre: PanelGraficos
+  panelSubmenu: {fileID: 1552651995}
+  panelPadre: {fileID: 73242260}
+  managerDirecto: {fileID: 1569566365}
 --- !u!1 &225309094
 GameObject:
   m_ObjectHideFlags: 0
@@ -3686,9 +3689,8 @@ MonoBehaviour:
   overlayPanels:
   - {fileID: 73242260}
   - {fileID: 1313453900}
-  - {fileID: 1552651995}
   - {fileID: 1969458256}
-  - {fileID: 0}
+  - {fileID: 1552651995}
 --- !u!4 &1569566366
 Transform:
   m_ObjectHideFlags: 0
