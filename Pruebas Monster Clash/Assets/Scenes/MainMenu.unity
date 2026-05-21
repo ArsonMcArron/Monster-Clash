@@ -417,7 +417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889003253}
         m_TargetAssemblyTypeName: OverlayManager, Assembly-CSharp
-        m_MethodName: ToggleOverlayByName
+        m_MethodName: OpenOverlayConToggle
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1662,7 +1662,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 889003253}
         m_TargetAssemblyTypeName: OverlayManager, Assembly-CSharp
-        m_MethodName: ToggleOverlayByName
+        m_MethodName: OpenOverlayConToggle
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
