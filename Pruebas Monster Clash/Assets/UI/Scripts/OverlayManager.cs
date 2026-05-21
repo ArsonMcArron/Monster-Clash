@@ -22,31 +22,24 @@ public class OverlayManager : MonoBehaviour
         }
     }
 
-    // ==========================================
-    // ESCENA 1: PARA LOS BOTONES "COMING SOON"
-    // (Solo abre el panel y no permite que se cierre al repetir click)
-    // ==========================================
+    //PARA LOS BOTONES "COMING SOON" DEL CHOOSE YOUR CHARACTER
     public void OpenOverlayComingSoon(string panelName)
     {
         GameObject panel = BuscarPanel(panelName);
         if (panel == null) return;
 
-        // Limpiamos pantalla y abrimos a piñón fijo
+        //MATA ESOS OVERLAYS Y DEJALOS FIJOOOS
         CloseAllOverlays();
         panel.SetActive(true);
         Debug.Log($"PANELIIIIN [{panel.name}] cambiado a: True (Modo Fijo)");
     }
 
-    // ==========================================
-    // ESCENA 2: PARA LOS BOTONES QUE SÍ SE CIERRAN
-    // (Hace el toggle normal: si ya estaba abierto, lo cierra)
-    // ==========================================
+    //PARA LOS BOTONES CON TOGGLES, ESTOS SI CIERRAN
     public void OpenOverlayConToggle(string panelName)
     {
         GameObject panel = BuscarPanel(panelName);
         if (panel == null) return;
 
-        // Guardamos si ya estaba activo antes de borrar la pantalla
         bool estabaActivo = panel.activeSelf;
 
         CloseAllOverlays();
@@ -62,7 +55,7 @@ public class OverlayManager : MonoBehaviour
         }
     }
 
-    // FUNCIÓN AUXILIAR INTERNA (Para no repetir código de búsqueda)
+    //COMO REPITAS EL CODIGO DE BUSQUEDA ME MATO.
     private GameObject BuscarPanel(string panelName)
     {
         if (overlayPanels == null) return null;
