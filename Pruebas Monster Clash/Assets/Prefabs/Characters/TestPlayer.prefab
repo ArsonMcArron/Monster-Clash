@@ -264,7 +264,7 @@ MonoBehaviour:
   attackController: {fileID: 4849468729616489689}
   attackRadius: 0.05
   attackDamage: 50
-  player: Player2
+  player: Player
 --- !u!1 &8398106713330602843
 GameObject:
   m_ObjectHideFlags: 0

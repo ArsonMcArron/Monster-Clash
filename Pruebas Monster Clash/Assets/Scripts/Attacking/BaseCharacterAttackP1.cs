@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class BaseCharacterAttack : MonoBehaviour
+public class BaseCharacterAttackP1 : MonoBehaviour
 {
     [SerializeField] private Transform attackController;
 
@@ -11,11 +11,18 @@ public class BaseCharacterAttack : MonoBehaviour
 
     [SerializeField] private float attackDamage;
 
+    private Animator _animator;
+
     public string player;
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("AttackP1"))
         {
             Punch();
         }
@@ -24,6 +31,8 @@ public class BaseCharacterAttack : MonoBehaviour
     private void Punch()
     {
         Collider2D[] objects = Physics2D.OverlapCircleAll(attackController.position, attackRadius);
+
+        _animator.SetTrigger("Attack");
 
         foreach (Collider2D collider in objects)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCharacterMovement : MonoBehaviour
+public class BaseCharacterMovementP1 : MonoBehaviour
 {
     public float speed = 2.5f;
     public float jumpForce = 2.5f;
@@ -36,7 +36,7 @@ public class BaseCharacterMovement : MonoBehaviour
     void Update()
     {
         // Movement
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("HorizontalP1");
         _movement = new Vector2(horizontalInput, 0f);
 
         // Flip character
@@ -53,7 +53,7 @@ public class BaseCharacterMovement : MonoBehaviour
         _isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Is Jumping?
-        if (Input.GetButtonDown("Jump") && _isGrounded == true)
+        if (Input.GetButtonDown("JumpP1") && _isGrounded == true)
         {
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
@@ -68,8 +68,6 @@ public class BaseCharacterMovement : MonoBehaviour
     void LateUpdate()
     {
         _animator.SetBool("Idle", _movement == Vector2.zero);
-        _animator.SetBool("IsGrounded", _isGrounded);
-        _animator.SetFloat("VerticalVelocity", _rigidbody.velocity.y);
     }
 
     private void Flip()
